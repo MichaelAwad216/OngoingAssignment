@@ -5,7 +5,7 @@ var logger = require('morgan')
 // var cookieParser = require('cookie-parser')
 // var bodyParser = require('body-parser')
 var session = require('express-session')
-var FileStore = require('session-file-store')(session) 
+var FileStore = require('session-file-store')(session)
 
 var indexRouter = require('./routes/index')
 var usersRouter = require('./routes/users')
