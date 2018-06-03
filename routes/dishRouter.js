@@ -229,7 +229,7 @@ dishRouter.route('/:dishId/comments/:commentId')
                             }, (err) => next(err));
                     }
                     else {
-                        err = new Error('You are not authorized to perform this operation!');
+                        err = new Error('You are not authorized to perform this operation');
                         err.status = 403;
                         return next(err);
                     }
