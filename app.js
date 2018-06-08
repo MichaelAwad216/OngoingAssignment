@@ -5,9 +5,9 @@ var logger = require('morgan')
 // var cookieParser = require('cookie-parser')
 // var bodyParser = require('body-parser')
 var session = require('express-session')
-var FileStore = require('session-file-store')(session)
+// var FileStore = require('session-file-store')(session)
 var passport = require('passport')
-var authenticate = require('./authenticate')
+// var authenticate = require('./authenticate')
 var config = require('./config')
 
 var indexRouter = require('./routes/index')
@@ -17,6 +17,14 @@ var promoRouter = require('./routes/promoRouter')
 var leaderRouter = require('./routes/leaderRouter')
 
 var app = express()
+
+app.all('*', (req, res, next) => {
+  if (req.secure) {
+    return next()
+  } else {
+    res.redirect(307, 'https://' + req.hostname + ':' + app.get('secPort') + req.url)
+  }
+})
 
 const mongoose = require('mongoose')
 mongoose.Promise = require('bluebird')
