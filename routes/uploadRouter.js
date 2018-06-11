@@ -31,7 +31,7 @@ uploadRouter.route('/')
   .options(cors.corsWithOptions, (req, res) => {
     res.sendStatus(200)
   })
-  .post(cors.corsWithOptions, , authenticate.verifyUser, authenticate.verifyAdmin, upload.single('imageFile'), (req, res) => {
+  .post(cors.corsWithOptions, authenticate.verifyUser, authenticate.verifyAdmin, upload.single('imageFile'), (req, res) => {
     res.statusCode = 200
     res.setHeader('Content-Type', 'application/json')
     res.json(req.file)

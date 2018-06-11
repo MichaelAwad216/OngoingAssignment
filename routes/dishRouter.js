@@ -211,7 +211,7 @@ dishRouter.route('/:dishId/comments/:commentId')
             return next(err);
           }
         } else if (dish == null) {
-        vat err = new Error('Dish ' + req.params.dishId + ' not found');
+        var err = new Error('Dish ' + req.params.dishId + ' not found');
         err.status = 404;
         return next(err);
     }
